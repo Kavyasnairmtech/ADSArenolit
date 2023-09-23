@@ -4,7 +4,7 @@ import joblib
 
 # Load the Random Forest model
 def load_model():
-    model = joblib.load("rf_model.pkl")  # Make sure the file name matches the model file in the same directory
+    model = joblib.load("https://github.com/Kavyasnairmtech/ADSArenolit/blob/main/rf_model.pkl")  # Make sure the file name matches the model file in the same directory
     return model
 
 # Define the Streamlit app
