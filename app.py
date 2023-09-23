@@ -2,11 +2,25 @@ import streamlit as st
 import pandas as pd
 import joblib
 
-# Load the Random Forest model
-def load_model():
-    model = joblib.load("https://github.com/Kavyasnairmtech/ADSArenolit/blob/main/rf_model.pkl")  # Make sure the file name matches the model file in the same directory
-    return model
+import requests
 
+# Function to load the model from a GitHub URL
+def load_model():
+    github_model_url = 'https://github.com/Kavyasnairmtech/ADSArenolit/blob/main/rf_model.pkl'
+    
+    # Download the model file from the URL
+    response = requests.get(github_model_url)
+    
+    if response.status_code == 200:
+        # Save the downloaded model to a local file
+        with open('rf_model.pkl', 'wb') as f:
+            f.write(response.content)
+        
+        # Load the model from the local file
+        model = joblib.load('rf_model.pkl')
+        return model
+    else:
+        raise Exception(f"Failed to download the model from {github_model_url}")
 # Define the Streamlit app
 def main():
     st.title("Roll Classification App")
