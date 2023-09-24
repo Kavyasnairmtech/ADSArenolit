@@ -17,7 +17,7 @@ def main():
     model = load_model()
     
     # Upload a CSV file with data
-    uploaded_csv = st.file_uploader('resampled_data.csv', type=["csv"])
+    uploaded_csv = st.file_uploader('augumented_dataset.csv', type=["csv"])
     
     if uploaded_csv is not None:
         st.write("### Uploaded CSV Data")
