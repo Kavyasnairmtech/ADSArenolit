@@ -6,7 +6,7 @@ import joblib
 
 # Load the Random Forest model
 def load_model():
-    model = joblib.load("logistic_regression_retrained_model.pkl")  # Make sure the file name matches the model file in the same directory
+    model = joblib.load("lr_retrained_model_final.pkl")  # Make sure the file name matches the model file in the same directory
     return model
 
 # Define the Streamlit app
